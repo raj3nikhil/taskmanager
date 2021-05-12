@@ -17,6 +17,7 @@ services:
   - database # link this service to the database service
  
  database: # name of the third service
-  image: mongo # specify image to build container from
+  build: api/db # specify the directory of the Dockerfile
+  image: raj3nikhil/taskmanager_mongo:latest
   ports:
   - "27017:27017" # specify port forwarding
