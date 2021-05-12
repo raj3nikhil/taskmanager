@@ -1,10 +1,12 @@
-FROM node:8.9
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY package.json /usr/src/app
-RUN npm cache clean --force
-RUN npm install
-COPY . /usr/src/app
-EXPOSE 4200
-CMD ["npm","start"]
+# Stage 1
+FROM node:10-alpine as build-step
+RUN mkdir -p /app
+WORKDIR /app 
+COPY package.json /app
+RUN npm install 
+COPY . /app 
+RUN npm run build --prod  
 
+# Stage 2 
+FROM nginx:1.17.1-alpine 
+COPY --from=build-step /app/dist/frontend /usr/share/nginx/html
