@@ -4,11 +4,13 @@ version: '3.0' # specify docker-compose version
 services:
  angular: # name of the first service
   build: frontend # specify the directory of the Dockerfile
+  image: raj3nikhil/taskmanager_angular:latest
   ports:
   - "4200:4200" # specify port mapping
  
  express: # name of the second service
   build: api # specify the directory of the Dockerfile
+  image: raj3nikhil/taskmanager_express:latest
   ports:
   - "3000:3000" #specify ports mapping
   links:
