@@ -1,4 +1,4 @@
-FROM node:6
+FROM node:latest as builder
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app
