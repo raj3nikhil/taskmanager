@@ -1,0 +1,15 @@
+---
+- name: Pull Docker Image of Frontend
+  hosts: all
+  tasks:
+    - name: Pull calculator devops image
+      docker_image:
+        name: raj3nikhil/taskmanager_angular
+        source: pull
+- name: Pull Docker Image of Backend
+  hosts: all
+  tasks:
+    - name: Pull calculator devops image
+      docker_image:
+        name: raj3nikhil/taskmanager_express
+        source: pull
