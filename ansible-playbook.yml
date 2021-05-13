@@ -12,3 +12,8 @@
         name: raj3nikhil/taskmanager_express
         force: yes
         source: pull
+    - name: Pull taskmanager_mongo image
+      docker_image:
+        name: raj3nikhil/taskmanager_mongo
+        force: yes
+        source: pull
