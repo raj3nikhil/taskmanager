@@ -1,0 +1,8 @@
+FROM mongo:latest
+RUN mkdir -p /usr/src/app/
+WORKDIR /usr/src/app/
+COPY ./api/db/ /usr/src/app
+CMD ["mongod"]
+EXPOSE 27017
+EXPOSE 28017
+
