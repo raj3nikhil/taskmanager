@@ -5,10 +5,8 @@
     - name: Pull taskmanager_angular image
       docker_image:
         name: raj3nikhil/taskmanager_angular
-        force: yes
         source: pull
     - name: Pull taskmanager_express image
       docker_image:
         name: raj3nikhil/taskmanager_express
-        force: yes
         source: pull
