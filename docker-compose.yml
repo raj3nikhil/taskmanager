@@ -1,6 +1,7 @@
 version: "3"
 services:
   angular-app:
+    build: ./frontend
     image: raj3nikhil/taskmanager_angular:latest
     stdin_open: true
     ports: 
@@ -8,6 +9,7 @@ services:
     networks:
       - mean-app
   api-server:
+    build: ./api
     image: raj3nikhil/taskmanager_express:latest
     ports:
       - "3000:3000"
