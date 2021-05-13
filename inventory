@@ -1,2 +1,2 @@
-localhost ansible_user=jenkins
+localhost ansible_user=nikhil
 
