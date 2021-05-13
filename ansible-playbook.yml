@@ -4,16 +4,11 @@
   tasks:
     - name: Pull taskmanager_angular image
       docker_image:
-        name: raj3nikhil/taskmanager_angular
+        name: raj3nikhil/taskmanager_angular:latest
         force: yes
         source: pull
     - name: Pull taskmanager_express image
       docker_image:
-        name: raj3nikhil/taskmanager_express
-        force: yes
-        source: pull
-    - name: Pull taskmanager_mongo image
-      docker_image:
-        name: raj3nikhil/taskmanager_mongo
+        name: raj3nikhil/taskmanager_express:latest
         force: yes
         source: pull
