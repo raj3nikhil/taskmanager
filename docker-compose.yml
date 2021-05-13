@@ -20,7 +20,7 @@ services:
   mongo:
     image: mongo:3.6.19-xenial
     ports:
-      - "27017:27017"
+      - "28017:28017"
     networks:
       - mean-app
     volumes:
