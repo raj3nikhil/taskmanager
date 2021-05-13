@@ -1,23 +1,31 @@
-version: '3.0' # specify docker-compose version
- 
-# Define the services/ containers to be run
+version: "3"
 services:
- angular: # name of the first service
-  build: ./frontend # specify the directory of the Dockerfile
-  image: raj3nikhil/taskmanager_angular:latest
-  ports:
-  - "4200:4200" # specify port mapping
- 
- express: # name of the second service
-  build: ./api # specify the directory of the Dockerfile
-  image: raj3nikhil/taskmanager_express:latest
-  ports:
-  - "3000:3000" #specify ports mapping
-  links:
-  - database # link this service to the database service
- 
- database: # name of the third service
-  build: ./api/db
-  image: raj3nikhil/taskmanager_mongo:latest # specify image to build container from
-  ports:
-  - "27017:27017" # specify port forwarding
+  angular-app:
+    image: raj3nikhil/taskmanager_angular:latest
+    stdin_open: true
+    ports: 
+      - "4200:4200"
+    networks:
+      - mean-app
+  api-server:
+    image: raj3nikhil/taskmanager_express:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - mean-app
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27017:27017"
+    networks:
+      - mean-app
+    volumes:
+      - mongo-data:/data/db
+networks:
+  mean-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
